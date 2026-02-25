@@ -1,0 +1,27 @@
+Key | Value
+WhiskerTraits.Setting.NoSmellIsPositive.Name | WhiskerTraits - Can't Smell is Positive
+WhiskerTraits.Setting.NoSmellIsPositive.Description | If true, remaps Can't Smell to be positive instead of neutral.
+WhiskerTraits.Setting.EnableNegative.Name | WhiskerTraits - Enable Negative Traits
+WhiskerTraits.Setting.EnableNegative.Description | Select false to prevent negative traits from rolling on new whiskers.
+WhiskerTraits.Setting.EnableNeutral.Name | WhiskerTraits - Enable Neutral Traits
+WhiskerTraits.Setting.EnableNeutral.Description | Select false to prevent neutral traits from rolling on new whiskers.
+WhiskerTraits.Setting.EnablePositive.Name |WhiskerTraits - Enable Positive Traits
+WhiskerTraits.Setting.EnablePositive.Description | Select false to prevent positive traits from rolling on new whiskers.
+WhiskerTraits.Setting.EnableCustom.Name |WhiskerTraits - Enable Custom Traits
+WhiskerTraits.Setting.EnableCustom.Description | Select false to prevent custom traits from rolling on new whiskers.
+WhiskerTraits.Trait.Prolific.Name | Prolific
+WhiskerTraits.Trait.Prolific.Description | This whisker is extraordinarily productive.
+WhiskerTraits.Trait.Mighty.Name | Mighty
+WhiskerTraits.Trait.Mighty.Description | This whisker can lift extremely heavy loads.
+WhiskerTraits.Trait.Speedy.Name | Speedy
+WhiskerTraits.Trait.Speedy.Description | This whisker is fast as lightning.
+WhiskerTraits.Trait.Normal.Name | Normal
+WhiskerTraits.Trait.Normal.Description | This whisker is not remarkable in any way.
+WhiskerTraits.Trait.Average.Name | Average
+WhiskerTraits.Trait.Average.Description | This whisker is run of the mill.
+WhiskerTraits.Trait.Mundane.Name | Mundane
+WhiskerTraits.Trait.Mundane.Description | This whisker has no noteworthy characteristics.
+WhiskerTraits.Trait.JackOfAllTrades.Name | Jack of All Trades
+WhiskerTraits.Trait.JackOfAllTrades.Description | This whisker excels at all types of work.
+WhiskerTraits.Trait.Builder.Name | Builder
+WhiskerTraits.Trait.Builder.Description | This whisker excels at construction activities.

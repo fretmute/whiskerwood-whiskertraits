@@ -1,0 +1,4 @@
+Name | Icon | DisplayName | Description | productivityMod | speedMod | carryMod | additionalStacks | canStack | expires | Category | severity_mastersync | useResourceData | hiddenMod
+mod.whiskertraits.prolific | /Script/Engine.Texture2D'/Game/Assets/Icons/icons8-gauge-100.icons8-gauge-100' | WhiskerTraits.Trait.Prolific.Name | WhiskerTraits.Trait.Prolific.Description | 50 | 0 | 0 | 0 | false | false | World | None | false | true
+mod.whiskertraits.mighty | /Script/Engine.Texture2D'/Game/Assets/Icons/icons8-strength-100.icons8-strength-100' | WhiskerTraits.Trait.Mighty.Name | WhiskerTraits.Trait.Mighty.Description | 0 | 0 | 3 | 0 | false | false | World | None | false | true
+mod.whiskertraits.speedy | /Script/Engine.Texture2D'/Game/Assets/Icons/icons8-running-100.icons8-running-100' | WhiskerTraits.Trait.Speedy.Name | WhiskerTraits.Trait.Speedy.Description | 0 | 50 | 0 | 0 | false | false | World | None | false | true

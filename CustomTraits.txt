@@ -1,0 +1,16 @@
+# Do not remove the column description line, it must be the first line of data.
+Name | Title | Description | Type | associatedModifier | allowInRandomizer | exclusiveTraits
+
+# Do not remove these traits, they are an important failsafe that won't roll under normal circumstances.
+failsafe.whiskertraits.normal | WhiskerTraits.Trait.Normal.Name | WhiskerTraits.Trait.Normal.Description | Neutral | None | true |
+failsafe.whiskertraits.average | WhiskerTraits.Trait.Average.Name | WhiskerTraits.Trait.Average.Description | Neutral | None | true |
+failsafe.whiskertraits.mundane | WhiskerTraits.Trait.Mundane.Name | WhiskerTraits.Trait.Mundane.Description | Neutral | None | true |
+# See above!
+
+# Begin Custom Traits
+whiskertraits.prolific | WhiskerTraits.Trait.Prolific.Name | WhiskerTraits.Trait.Prolific.Description | Positive | mod.whiskertraits.prolific | true | (mypace, diligent)
+whiskertraits.mighty | WhiskerTraits.Trait.Mighty.Name | WhiskerTraits.Trait.Mighty.Description | Positive | mod.whiskertraits.mighty | true | (weak, weakknees, strongshoulders)
+whiskertraits.speedy | WhiskerTraits.Trait.Speedy.Name | WhiskerTraits.Trait.Speedy.Description | Positive | mod.whiskertraits.speedy | true | (slow, patient, swift)
+whiskertraits.builder | WhiskerTraits.Trait.Builder.Name | WhiskerTraits.Trait.Builder.Description | Positive | mod.policy.rapidconstruction | true |
+# Note that exclusiveTraits must be enclosed in parenthesis and separated by commas!
+#End Custom Traits

@@ -1,0 +1,14 @@
+------ Settings names
+WhiskerTraits-NoSmellIsPositive
+WhiskerTraits-EnableNegative
+WhiskerTraits-EnableNeutral
+
+------ Localization String Keys
+WhiskerTraits.NoSmellIsPositive.Name
+WhiskerTraits.NoSmellIsPositive.Description
+WhiskerTraits.EnableNegative.Name
+WhiskerTraits.EnableNegative.Description
+WhiskerTraits.EnableNeutral.Name
+WhiskerTraits.EnableNeutral.Description
+WhiskerTraits.Trait.Genius.Name
+WhiskerTraits.Trait.Genius.Description

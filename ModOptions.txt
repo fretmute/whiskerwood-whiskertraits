@@ -1,0 +1,5 @@
+OptionId | DisplayName | Description | ValuesArray | DefaultValue
+WhiskerTraits-EnableNegative | WhiskerTraits.Setting.EnableNegative.Name | WhiskerTraits.Setting.EnableNegative.Description | True, False | True
+WhiskerTraits-EnableNeutral | WhiskerTraits.Setting.EnableNeutral.Name | WhiskerTraits.Setting.EnableNeutral.Description | True, False | True
+WhiskerTraits-EnablePositive | WhiskerTraits.Setting.EnablePositive.Name | WhiskerTraits.Setting.EnablePositive.Description | True, False | True
+WhiskerTraits-EnableCustom | WhiskerTraits.Setting.EnableCustom.Name | WhiskerTraits.Setting.EnableCustom.Description | True, False | False
