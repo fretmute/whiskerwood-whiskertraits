@@ -1,4 +1,69 @@
 Name | Icon | DisplayName | Description | productivityMod | speedMod | carryMod | additionalStacks | canStack | expires | Category | severity_mastersync | useResourceData | hiddenMod
+
+
+# Begin Custom Modifiers
+
 mod.whiskertraits.prolific | /Script/Engine.Texture2D'/Game/Assets/Icons/icons8-gauge-100.icons8-gauge-100' | WhiskerTraits.Trait.Prolific.Name | WhiskerTraits.Trait.Prolific.Description | 50 | 0 | 0 | 0 | false | false | World | None | false | true
 mod.whiskertraits.mighty | /Script/Engine.Texture2D'/Game/Assets/Icons/icons8-strength-100.icons8-strength-100' | WhiskerTraits.Trait.Mighty.Name | WhiskerTraits.Trait.Mighty.Description | 0 | 0 | 3 | 0 | false | false | World | None | false | true
 mod.whiskertraits.speedy | /Script/Engine.Texture2D'/Game/Assets/Icons/icons8-running-100.icons8-running-100' | WhiskerTraits.Trait.Speedy.Name | WhiskerTraits.Trait.Speedy.Description | 0 | 50 | 0 | 0 | false | false | World | None | false | true
+
+# End Custom Modifiers
+
+# Begin Vanilla Modifiers
+
+# mod.nosleep|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-sleep-64.icons8-sleep-64'|mod.nosleep|mod.desc.nosleep|-30|-20|0|0|false|true|Home|None|false|false
+# mod.hunger|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-stomach-64.icons8-stomach-64'|mod.hunger|mod.desc.hunger|-30|-15|0|0|false|false|Health|None|false|false
+# mod.starvation|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-starving-64.icons8-starving-64'|mod.starvation|mod.desc.starvation|-50|-20|0|0|false|false|Health|None|false|false
+# mod.injury.illness|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-virus-100.icons8-virus-100'|mod.injury.illness|mod.desc.injury.illness|-50|-30|0|0|false|false|Health|None|false|false
+# mod.injury.wound|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-headstone-64.icons8-headstone-64'|mod.injury.wound|mod.desc.injury.wound|-30|-10|0|0|false|false|Health|None|false|false
+# mod.injury.extremeillness|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-headstone-64.icons8-headstone-64'|mod.injury.extremeillness|mod.desc.injury.extremeillness|-30|-30|0|0|false|false|Health|None|false|false
+# mod.policy.increasedCarryCapacity|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-strength-100.icons8-strength-100'|policy.title.increasedCarryCapacity|policy.desc.increasedCarryCapacity|0|0|2|0|false|false|World|None|false|false
+# mod.policy.rapidconstruction|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-wrench-64.icons8-wrench-64'|policy.title.rapidconstruction|policy.desc.rapidconstruction|0|50|0|0|false|false|World|None|false|false
+# mod.policy.productivity.buff|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-gear-100.icons8-gear-100'|policy.title.productivity|policy.desc.productivity|50|0|0|0|false|true|World|None|false|false
+# mod.chilly|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-frost-100.icons8-frost-100'|mod.chilly|mod.desc.chilly|-10|-10|0|0|false|false|World|None|false|false
+# mod.cold|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-frost-100.icons8-frost-100'|mod.cold|mod.desc.cold|-20|-20|0|0|false|false|World|None|false|false
+# mod.Freezing|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-frost-100.icons8-frost-100'|mod.Freezing|mod.desc.Freezing|-50|-30|0|0|false|false|World|None|false|false
+# mod.bathed|/Script/Engine.Texture2D'/Game/ThirdParty/Icon_AssetPacks/SpellBookPage06/Textures/Tex_SpellBook06_21.Tex_SpellBook06_21'|mod.bathed|mod.desc.bathed|0|0|0|0|false|true|service|None|false|false
+# mod.matchingGuildEmployer|/Script/Engine.Texture2D'/Game/ThirdParty/Icon_AssetPacks/CraftResourcesIcons/Textures/Tex_recipes_09_b.Tex_recipes_09_b'|mod.matchingGuildEmployer|mod.desc.matchingGuildEmployer|50|0|0|0|false|false|World|None|false|false
+# mod.rawFoodComplaint|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-barley-100.icons8-barley-100'|mod.rawFoodComplaint|mod.desc.rawFoodComplaint|0|0|0|0|false|true|food|None|false|false
+# mod.newarrival|None|mod.newarrival|mod.desc.newarrival|0|0|0|0|false|true|World|None|false|false
+# mod.meal.rawfish|None|None|None|0|5|0|0|false|true|Health|None|true|false
+# mod.meal.mushroom|None|None|None|5|0|0|0|false|true|Health|None|true|false
+# mod.meal.smokedfish|None|None|None|10|5|0|0|false|true|Health|None|true|false
+# mod.meal.stew|None|None|None|10|10|1|0|false|true|Health|None|true|false
+# mod.meal.platter|None|None|None|25|35|1|0|false|true|Health|None|true|false
+# mod.meal.bread|None|None|None|5|5|1|0|false|true|Health|None|true|false
+# mod.meal.basicRations|None|None|None|10|0|0|0|false|true|Health|None|true|false
+# mod.equipment.handtool|None|None|None|50|0|0|0|false|false|None|None|true|false
+# mod.equipment.clothes|None|None|None|0|0|0|0|false|false|None|None|true|false
+# mod.engineerPassive|None|mod.engineerPassive|mod.desc.engineerPassive|25|0|0|0|false|false|None|None|false|true
+# mod.explorersPassive|None|mod.explorersPassive|mod.desc.explorersPassive|0|25|0|0|false|false|None|None|false|true
+# mod.trait.swift|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-fast-100.icons8-fast-100'|mod.trait.swift|mod.desc.trait.swift|0|15|0|0|false|false|None|None|false|true
+# mod.minersPassive|None|mod.minersPassive|mod.desc.minersPassive|0|0|1|0|false|false|None|None|false|true
+# mod.trait.strongshoulders|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-strength-100.icons8-strength-100'|mod.trait.strongshoulders|mod.desc.trait.strongshoulders|0|0|2|0|false|false|None|None|false|true
+# mod.statueIntimidation|/Script/Engine.Texture2D'/Game/ThirdParty/Icon_AssetPacks/BlueLootBox/Textures/Tex_BlueLootBox_45_b.Tex_BlueLootBox_45_b'|mod.statueIntimidation|mod.desc.statueIntimidation|0|30|0|0|false|true|World|None|false|false
+# mod.statueIntimidation2|/Script/Engine.Texture2D'/Game/ThirdParty/Icon_AssetPacks/BlueLootBox/Textures/Tex_BlueLootBox_45_b.Tex_BlueLootBox_45_b'|mod.statueIntimidation2|mod.desc.statueIntimidation2|0|55|0|0|false|true|World|None|false|false
+# mod.lightpollution|/Script/Engine.Texture2D'/Game/Assets/Icons/icon_minorpollution.icon_minorpollution'|mod.lightpollution|mod.desc.lightpollution|-10|-15|0|0|false|false|None|None|false|false
+# mod.heavypollution|/Script/Engine.Texture2D'/Game/Assets/Icons/icon_heavypollution.icon_heavypollution'|mod.heavypollution|mod.desc.heavypollution|-20|-20|0|0|false|false|None|None|false|false
+# mod.trait.scientist|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-philtre-90.icons8-philtre-90'|mod.trait.scientist|mod.desc.trait.scientist|10|0|0|0|false|false|None|None|false|true
+# mod.meal.berries|None|None|None|3|3|0|0|false|true|Health|None|true|false
+# mod.meal.berrysoup|None|None|None|5|10|0|0|false|true|Health|None|true|false
+# mod.meal.jampastry|None|None|None|10|20|0|0|false|true|Health|None|true|false
+# mod.meal.fishskewers|None|None|None|20|10|0|0|false|true|Health|None|true|false
+# mod.meal.simplemeal|None|None|None|35|25|1|0|false|true|Health|None|true|false
+# mod.meal.heartymeal|None|None|None|25|25|2|0|false|true|Health|None|true|false
+# mod.overtime|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-overtime-100.icons8-overtime-100'|mod.overtime|mod.desc.overtime|40|15|0|0|false|false|service|None|false|false
+# mod.unhappymonarchist|/Script/Engine.Texture2D'/Game/Assets/Icons/monarchist.monarchist'|mod.unhappymonarchist|mod.desc.unhappymonarchist|-60|0|0|0|false|false|None|None|false|false
+# mod.equipment.simpleclothes|None|None|None|0|0|0|0|false|false|None|None|true|false
+# mod.meal.advancedRations|None|None|None|15|15|0|0|false|true|Health|None|true|false
+# mod.meal.cannedFood|None|None|None|3|0|0|0|false|true|Health|None|true|false
+# mod.trait.diligent|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-gear-100.icons8-gear-100'|trait.diligent|trait.diligent.desc|10|0|0|0|false|false|None|None|false|true
+# mod.trait.weak|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-weak-100.icons8-weak-100'|trait.weak|trait.weak.desc|0|0|-1|0|false|false|None|None|false|true
+# mod.trait.slow|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-snail-100.icons8-snail-100'|trait.slow|trait.slow.desc|0|-15|0|0|false|false|None|None|false|true
+# mod.trait.perfectionist|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-clean-100.icons8-clean-100'|trait.perfectionist|trait.perfectionist.desc|-10|10|0|0|false|false|None|None|false|true
+# mod.trait.mypace|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-relax-100.icons8-relax-100'|trait.mypace|trait.mypace.desc|-10|0|0|0|false|false|None|None|false|true
+# mod.trait.patient|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-hourglass-100.icons8-hourglass-100'|trait.patient|trait.patient.desc|0|-10|0|0|false|false|None|None|false|true
+# mod.inspired|/Script/Engine.Texture2D'/Game/Assets/Icons/icons8-bugle-100.icons8-bugle-100'|mod.inspired|mod.desc.inspired|10|0|0|0|false|false|None|None|false|false
+
+# End Vanilla Modifiers
+

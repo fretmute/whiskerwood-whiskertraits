@@ -1,16 +1,49 @@
 # Do not remove the column description line, it must be the first line of data.
+# Note that exclusiveTraits must be enclosed in parentheses and separated by commas!
 Name | Title | Description | Type | associatedModifier | allowInRandomizer | exclusiveTraits
 
-# Do not remove these traits, they are an important failsafe that won't roll under normal circumstances.
-failsafe.whiskertraits.normal | WhiskerTraits.Trait.Normal.Name | WhiskerTraits.Trait.Normal.Description | Neutral | None | true |
-failsafe.whiskertraits.average | WhiskerTraits.Trait.Average.Name | WhiskerTraits.Trait.Average.Description | Neutral | None | true |
-failsafe.whiskertraits.mundane | WhiskerTraits.Trait.Mundane.Name | WhiskerTraits.Trait.Mundane.Description | Neutral | None | true |
-# See above!
-
 # Begin Custom Traits
+
 whiskertraits.prolific | WhiskerTraits.Trait.Prolific.Name | WhiskerTraits.Trait.Prolific.Description | Positive | mod.whiskertraits.prolific | true | (mypace, diligent)
 whiskertraits.mighty | WhiskerTraits.Trait.Mighty.Name | WhiskerTraits.Trait.Mighty.Description | Positive | mod.whiskertraits.mighty | true | (weak, weakknees, strongshoulders)
 whiskertraits.speedy | WhiskerTraits.Trait.Speedy.Name | WhiskerTraits.Trait.Speedy.Description | Positive | mod.whiskertraits.speedy | true | (slow, patient, swift)
 whiskertraits.builder | WhiskerTraits.Trait.Builder.Name | WhiskerTraits.Trait.Builder.Description | Positive | mod.policy.rapidconstruction | true |
-# Note that exclusiveTraits must be enclosed in parenthesis and separated by commas!
+
 #End Custom Traits
+
+# Begin Vanilla Traits
+
+# snorer|trait.snorer|trait.snorer.desc|Neutral|None|true|
+# lightEater|trait.lightEater|trait.lightEater.desc|Positive|None|true|(heavyeater)
+# loner|trait.loner|trait.loner.desc.alt|Negative|None|false|(compassionate)
+# strongshoulders|trait.strongShoulders|trait.strongShoulders.desc|Positive|mod.trait.strongshoulders|true|(weak,weakknees)
+# heavyeater|trait.heavyEater|trait.heavyEater.desc|Negative|None|false|(lightEater)
+# swift|trait.swift|trait.swift.desc|Positive|mod.trait.swift|true|(slow,patient)
+# Optimist|trait.optimist|trait.optimist.desc|Positive|None|true|(pessimest)
+# pessimest|trait.pessimist|trait.pessimist.desc|Negative|None|false|(Optimist)
+# sickly|trait.sickly|trait.sickly.desc|Negative|None|false|(healthy, warmCore)
+# healthy|trait.healthy|trait.healthy.desc|Positive|None|true|(sickly, weakknees)
+# warmCore|trait.warmCore|trait.warmCore.desc|Positive|None|true|(sickly)
+# unsafeworker|trait.unsafe|trait.unsafe.desc|Negative|None|false|(perfectionist)
+# Rude|trait.rude|trait.rude.desc|Negative|None|false|(compassionate, thoughtful, considerate, patient)
+# monarchist|trait.monarchist|trait.monarchist.desc|Negative|None|false|(scientist, rebellious)
+# nosmell|trait.nosmell|trait.nosmell.desc|Neutral|None|true
+# diligent|trait.diligent|trait.diligent.desc|Positive|mod.trait.diligent|true|(mypace)
+# weak|trait.weak|trait.weak.desc|Negative|mod.trait.weak|false|(strongshoulders)
+# slow|trait.slow|trait.slow.desc|Negative|mod.trait.slow|false|(swift)
+# teacher|trait.teacher|trait.teacher.desc|Positive|None|true
+# perfectionist|trait.perfectionist|trait.perfectionist.desc|Neutral|mod.trait.perfectionist|true|(unsafeworker)
+# mypace|trait.mypace|trait.mypace.desc|Negative|mod.trait.mypace|false|(diligent)
+# compassionate|trait.compassionate|trait.compassionate.desc|Neutral|None|true|(Rude,loner,greedy)
+# thoughtful|trait.thoughtful|trait.thoughtful.desc|Neutral|None|true|(Rude)
+# considerate|trait.considerate|trait.considerate.desc|Positive|None|true|(Rude,nosey,greedy)
+# inquisitive|trait.inquisitive|trait.inquisitive.desc|Neutral|None|true|
+# weakknees|trait.weakknees|trait.weakknees.desc|Negative|None|false|(strongshoulders,healthy)
+# nosey|trait.nosey|trait.nosey.desc|Negative|None|false|(considerate, patient)
+# greedy|trait.greedy|trait.greedy.desc|Negative|None|false|(Content,considerate,patient)
+# Content|trait.content|trait.content.desc|Positive|None|true|(greedy)
+# patient|trait.patient|trait.patient.desc|Neutral|mod.trait.patient|true|(swift,Rude,nosey,greedy)
+# rebellious|trait.rebellious|trait.rebellious.desc|Neutral|None|true|(monarchist)
+
+# End Vanilla Traits
+
