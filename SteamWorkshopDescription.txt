@@ -2,13 +2,17 @@
 A mod for Whiskerwood to modify Whisker traits and their modifiers.
 
 [h2]Overview[/h2]
- - Provides the ability to enable and disable traits by category: Positve, Negative, Neutral, and CUstom.\
+ - Provides the ability to enable and disable traits by category: Positive, Negative, Neutral, and Custom.
  - Provides the ability to override values on existing traits.
  - Provides the ability to override values on existing modifiers.
- - Edit files in [icode]<YourSteamDirectory> \steamapps\workshop\content\2489330\3673601103[/icode] to customize.
+ - Edit files in <YourSteamDirectory> \steamapps\workshop\content\2489330\3673601103 to customize.
+ - Added `FileConfig.txt` to help alleviate file overwrites from future patches:
+  - You can specify alternate filenames for configuration files on a per file basis.
+  - `FileConfig.txt` itself will still revert after updates, but at least you won't lose your other file updates.
 
 [h2]Known Issues[/h2]
  - This mod doesn't implement any gameplay logic, and is mostly limited to editing the basic stats and assigning existing modifiers.
  - The custom traits are wildly imbalanced.
  - I'm not certain that the builder trait gives anything aside from the move speed.
- - The game will crash if there are less than two traits available to the modifier. Traits that apply no modifiers will be injected if there are less than two traits available.
+ - The game will crash if there are less than two traits available to the randomizer. Traits that apply no modifiers will be injected if there are less than two traits available.
+ - Traits are locked in once the randomizer is used (i.e. you start a new game). If you change the settings past that point, you will need to exit the game to apply them.
