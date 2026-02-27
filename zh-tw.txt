@@ -1,0 +1,27 @@
+Key | Value
+WhiskerTraits.Setting.NoSmellIsPositive.Name | WhiskerTraits - 無法嗅聞是正面的
+WhiskerTraits.Setting.NoSmellIsPositive.Description | 選擇 True 使無法嗅聞變成為正面而非中立
+WhiskerTraits.Setting.EnableNegative.Name | WhiskerTraits - 啟用負面特徵
+WhiskerTraits.Setting.EnableNegative.Description | 選擇 False 以防止負面特徵在新鬍鬚上出現
+WhiskerTraits.Setting.EnableNeutral.Name | WhiskerTraits - 啟用中立特徵
+WhiskerTraits.Setting.EnableNeutral.Description | 選擇 False 以防止中立特徵在新鬍鬚上出現
+WhiskerTraits.Setting.EnablePositive.Name |WhiskerTraits - 啟用正面特徵
+WhiskerTraits.Setting.EnablePositive.Description | 選擇 False 以防止正面特徵在新鬍鬚上出現
+WhiskerTraits.Setting.EnableCustom.Name | WhiskerTraits - 啟用自訂特徵
+WhiskerTraits.Setting.EnableCustom.Description | 選擇 False 以防止自訂特徵在新鬍鬚上出現
+WhiskerTraits.Trait.Prolific.Name | 生產力怪物
+WhiskerTraits.Trait.Prolific.Description | 這根鬍鬚擁有超凡的生產力
+WhiskerTraits.Trait.Mighty.Name | 大力神
+WhiskerTraits.Trait.Mighty.Description | 這根鬍鬚能舉起極重的負荷
+WhiskerTraits.Trait.Speedy.Name | 閃電疾風
+WhiskerTraits.Trait.Speedy.Description | 這根鬍鬚速度快如閃電
+WhiskerTraits.Trait.Normal.Name | 平凡無奇
+WhiskerTraits.Trait.Normal.Description | 這根鬍鬚在任何方面都毫無突出之處
+WhiskerTraits.Trait.Average.Name | 中規中矩
+WhiskerTraits.Trait.Average.Description | 這根鬍鬚是稀鬆平常的
+WhiskerTraits.Trait.Mundane.Name | 乏善可陳
+WhiskerTraits.Trait.Mundane.Description | 這根鬍鬚沒有任何值得注意的特徵
+WhiskerTraits.Trait.JackOfAllTrades.Name | 萬事通
+WhiskerTraits.Trait.JackOfAllTrades.Description |  這根鬍鬚擅長各種各樣的工作
+WhiskerTraits.Trait.Builder.Name | 建築者
+WhiskerTraits.Trait.Builder.Description | 這根鬍鬚擅長建築相關活動

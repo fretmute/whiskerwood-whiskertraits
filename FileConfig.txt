@@ -7,5 +7,4 @@ CustomTraits.txt | CustomModifiers.txt | Localizations
 # On the off chance that you want to add your own localizations, comma separate
 # and make the filename the language code, e.g. 'en.txt, de.txt' to add German.
 # It seems filenames can't have spaces, so beware.
-CustomTraits.txt | CustomModifiers.txt | en.txt
-
+CustomTraits.txt | CustomModifiers.txt | en.txt, zh-tw.txt
