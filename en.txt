@@ -1,4 +1,6 @@
 Key | Value
+WhiskerTraits.Setting.True | True
+WhiskerTraits.Setting.False | False
 WhiskerTraits.Setting.NoSmellIsPositive.Name | WhiskerTraits - Can't Smell is Positive
 WhiskerTraits.Setting.NoSmellIsPositive.Description | If true, remaps Can't Smell to be positive instead of neutral.
 WhiskerTraits.Setting.EnableNegative.Name | WhiskerTraits - Enable Negative Traits
