@@ -27,11 +27,11 @@ whiskertraits.builder | WhiskerTraits.Trait.Builder.Name | WhiskerTraits.Trait.B
 # unsafeworker|trait.unsafe|trait.unsafe.desc|Negative|None|false|(perfectionist)
 # Rude|trait.rude|trait.rude.desc|Negative|None|false|(compassionate, thoughtful, considerate, patient)
 # monarchist|trait.monarchist|trait.monarchist.desc|Negative|None|false|(scientist, rebellious)
-# nosmell|trait.nosmell|trait.nosmell.desc|Neutral|None|true
+# nosmell|trait.nosmell|trait.nosmell.desc|Neutral|None|true|
 # diligent|trait.diligent|trait.diligent.desc|Positive|mod.trait.diligent|true|(mypace)
 # weak|trait.weak|trait.weak.desc|Negative|mod.trait.weak|false|(strongshoulders)
 # slow|trait.slow|trait.slow.desc|Negative|mod.trait.slow|false|(swift)
-# teacher|trait.teacher|trait.teacher.desc|Positive|None|true
+# teacher|trait.teacher|trait.teacher.desc|Positive|None|true|
 # perfectionist|trait.perfectionist|trait.perfectionist.desc|Neutral|mod.trait.perfectionist|true|(unsafeworker)
 # mypace|trait.mypace|trait.mypace.desc|Negative|mod.trait.mypace|false|(diligent)
 # compassionate|trait.compassionate|trait.compassionate.desc|Neutral|None|true|(Rude,loner,greedy)
