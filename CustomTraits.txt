@@ -7,7 +7,7 @@ Name | Title | Description | Type | associatedModifier | allowInRandomizer | exc
 whiskertraits.prolific | WhiskerTraits.Trait.Prolific.Name | WhiskerTraits.Trait.Prolific.Description | Positive | mod.whiskertraits.prolific | true | (mypace, diligent)
 whiskertraits.mighty | WhiskerTraits.Trait.Mighty.Name | WhiskerTraits.Trait.Mighty.Description | Positive | mod.whiskertraits.mighty | true | (weak, weakknees, strongshoulders)
 whiskertraits.speedy | WhiskerTraits.Trait.Speedy.Name | WhiskerTraits.Trait.Speedy.Description | Positive | mod.whiskertraits.speedy | true | (slow, patient, swift)
-whiskertraits.builder | WhiskerTraits.Trait.Builder.Name | WhiskerTraits.Trait.Builder.Description | Positive | mod.policy.rapidconstruction | true |
+whiskertraits.builder | WhiskerTraits.Trait.Builder.Name | WhiskerTraits.Trait.Builder.Description | Positive | mod.whiskertraits.builder | true |
 
 #End Custom Traits
 

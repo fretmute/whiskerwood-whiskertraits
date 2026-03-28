@@ -1,5 +1,5 @@
 OptionId | DisplayName | Description | ValuesArray | DefaultValue
-WhiskerTraits-EnableNegative | WhiskerTraits.Setting.EnableNegative.Name | WhiskerTraits.Setting.EnableNegative.Description | WhiskerTraits.Setting.True, WhiskerTraits.Setting.False | WhiskerTraits.Setting.True
-WhiskerTraits-EnableNeutral | WhiskerTraits.Setting.EnableNeutral.Name | WhiskerTraits.Setting.EnableNeutral.Description | WhiskerTraits.Setting.True, WhiskerTraits.Setting.False | WhiskerTraits.Setting.True
-WhiskerTraits-EnablePositive | WhiskerTraits.Setting.EnablePositive.Name | WhiskerTraits.Setting.EnablePositive.Description | WhiskerTraits.Setting.True, WhiskerTraits.Setting.False | WhiskerTraits.Setting.True
-WhiskerTraits-EnableCustom | WhiskerTraits.Setting.EnableCustom.Name | WhiskerTraits.Setting.EnableCustom.Description | WhiskerTraits.Setting.True, WhiskerTraits.Setting.False | WhiskerTraits.Setting.False
+WhiskerTraits-EnableNegative | WhiskerTraits.Setting.Negative.Name | WhiskerTraits.Setting.Negative.Description | toggle.enabled, toggle.disabled | toggle.enabled
+WhiskerTraits-EnableNeutral | WhiskerTraits.Setting.Neutral.Name | WhiskerTraits.Setting.Neutral.Description | toggle.enabled, toggle.disabled | toggle.enabled
+WhiskerTraits-EnablePositive | WhiskerTraits.Setting.Positive.Name | WhiskerTraits.Setting.Positive.Description | toggle.enabled, toggle.disabled | toggle.enabled
+WhiskerTraits-EnableCustom | WhiskerTraits.Setting.Custom.Name | WhiskerTraits.Setting.Custom.Description | toggle.enabled, toggle.disabled | toggle.disabled

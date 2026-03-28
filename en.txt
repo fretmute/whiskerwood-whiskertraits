@@ -1,16 +1,12 @@
 Key | Value
-WhiskerTraits.Setting.True | True
-WhiskerTraits.Setting.False | False
-WhiskerTraits.Setting.NoSmellIsPositive.Name | WhiskerTraits - Can't Smell is Positive
-WhiskerTraits.Setting.NoSmellIsPositive.Description | If true, remaps Can't Smell to be positive instead of neutral.
-WhiskerTraits.Setting.EnableNegative.Name | WhiskerTraits - Enable Negative Traits
-WhiskerTraits.Setting.EnableNegative.Description | Select false to prevent negative traits from rolling on new whiskers.
-WhiskerTraits.Setting.EnableNeutral.Name | WhiskerTraits - Enable Neutral Traits
-WhiskerTraits.Setting.EnableNeutral.Description | Select false to prevent neutral traits from rolling on new whiskers.
-WhiskerTraits.Setting.EnablePositive.Name |WhiskerTraits - Enable Positive Traits
-WhiskerTraits.Setting.EnablePositive.Description | Select false to prevent positive traits from rolling on new whiskers.
-WhiskerTraits.Setting.EnableCustom.Name |WhiskerTraits - Enable Custom Traits
-WhiskerTraits.Setting.EnableCustom.Description | Select false to prevent custom traits from rolling on new whiskers.
+WhiskerTraits.Setting.Negative.Name | Whisker Traits - Negative Traits
+WhiskerTraits.Setting.Negative.Description | Enable or disable negative traits from appearing on new whiskers.
+WhiskerTraits.Setting.Neutral.Name | Whisker Traits - Neutral Traits
+WhiskerTraits.Setting.Neutral.Description | Enable or disable neutral traits from appearing on new whiskers.
+WhiskerTraits.Setting.Positive.Name |Whisker Traits - Positive Traits
+WhiskerTraits.Setting.Positive.Description | Enable or disable positive traits from appearing on new whiskers.
+WhiskerTraits.Setting.Custom.Name |Whisker Traits - Custom Traits
+WhiskerTraits.Setting.Custom.Description | Enable or disable custom traits from appearing on new whiskers.
 WhiskerTraits.Trait.Prolific.Name | Prolific
 WhiskerTraits.Trait.Prolific.Description | This whisker is extraordinarily productive.
 WhiskerTraits.Trait.Mighty.Name | Mighty
