@@ -1,0 +1,27 @@
+Key | Value
+WhiskerTraits.Setting.NoSmellIsPositive.Name | WhiskerTraits - 失去嗅觉是正面的
+WhiskerTraits.Setting.NoSmellIsPositive.Description | 选择 True 使失去嗅觉变为正面而非中性特质
+WhiskerTraits.Setting.EnableNegative.Name | WhiskerTraits - 启用负面特质
+WhiskerTraits.Setting.EnableNegative.Description | 选择 False 以防止负面特质在新鼠鼠上出现
+WhiskerTraits.Setting.EnableNeutral.Name | WhiskerTraits - 启用中性特质
+WhiskerTraits.Setting.EnableNeutral.Description | 选择 False 以防止中立特质在新鼠鼠上出现
+WhiskerTraits.Setting.EnablePositive.Name |WhiskerTraits - 启用正面特质
+WhiskerTraits.Setting.EnablePositive.Description | 选择 False 以防止正面特质在新鼠鼠上出现
+WhiskerTraits.Setting.EnableCustom.Name | WhiskerTraits - 启用自定义特质
+WhiskerTraits.Setting.EnableCustom.Description | 选择 False 以防止自定义特质在新鼠鼠上出现
+WhiskerTraits.Trait.Prolific.Name | 多产
+WhiskerTraits.Trait.Prolific.Description | 这只鼠鼠工作非常高效
+WhiskerTraits.Trait.Mighty.Name | 大力士
+WhiskerTraits.Trait.Mighty.Description | 这只鼠鼠能搬运极其沉重的货物
+WhiskerTraits.Trait.Speedy.Name | 风驰电掣
+WhiskerTraits.Trait.Speedy.Description | 这只鼠鼠跑得快如闪电
+WhiskerTraits.Trait.Normal.Name | 平平无奇
+WhiskerTraits.Trait.Normal.Description | 这只鼠鼠在任何方面都没什么特别的
+WhiskerTraits.Trait.Average.Name | 中规中矩
+WhiskerTraits.Trait.Average.Description | 这只鼠鼠是个泛泛之辈
+WhiskerTraits.Trait.Mundane.Name | 乏善可陈
+WhiskerTraits.Trait.Mundane.Description | 这只鼠鼠沒有任何值得注意的特质
+WhiskerTraits.Trait.JackOfAllTrades.Name | 万事通
+WhiskerTraits.Trait.JackOfAllTrades.Description | 这只鼠鼠在各种工作中都表现出色
+WhiskerTraits.Trait.Builder.Name | 建筑工
+WhiskerTraits.Trait.Builder.Description | 这只鼠鼠在建筑活动中表现出色
