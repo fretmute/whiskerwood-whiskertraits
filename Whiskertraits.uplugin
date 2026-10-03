@@ -1,6 +1,8 @@
 {
     "Name" : "WhiskerTraits",
     "Description" : "A mod for customizing whisker trait tables.",
-    "Version" : "0.1.1.1-Patch#19",
-    "CreatedBy" : "Fretmute"
+    "Version" : "0.2.0.0+Patch#29",
+    "CreatedBy" : "Fretmute",
+    "CreatedByURL" : "https://github.com/fretmute/whiskerwood-whiskertraits",
+    "EngineVersion": "5.8"
 }

@@ -1,0 +1,27 @@
+Key | Value
+WhiskerTraits.Setting.NoSmellIsPositive.Name | WhiskerTraits - '후각 상실'을 긍정 특성으로 분류
+WhiskerTraits.Setting.NoSmellIsPositive.Description | True를 선택하면 기존에 중립이었던 '후각 상실' 특성이 긍정적 특성으로 변경됩니다
+WhiskerTraits.Setting.EnableNegative.Name | WhiskerTraits - 부정적 특성 활성화
+WhiskerTraits.Setting.EnableNegative.Description | False를 선택하면 새로운 쥐에게 부정적 특성이 부여되지 않습니다
+WhiskerTraits.Setting.EnableNeutral.Name | WhiskerTraits - 중립적 특성 활성화
+WhiskerTraits.Setting.EnableNeutral.Description | False를 선택하면 새로운 쥐에게 중립적 특성이 부여되지 않습니다
+WhiskerTraits.Setting.EnablePositive.Name | WhiskerTraits - 긍정적 특성 활성화
+WhiskerTraits.Setting.EnablePositive.Description | False를 선택하면 새로운 쥐에게 긍정적 특성이 부여되지 않습니다
+WhiskerTraits.Setting.EnableCustom.Name | WhiskerTraits - 커스텀 특성 활성화
+WhiskerTraits.Setting.EnableCustom.Description | False를 선택하면 새로운 쥐에게 모드 고유의 커스텀 특성이 부여되지 않습니다
+WhiskerTraits.Trait.Prolific.Name | 일당백 노동자
+WhiskerTraits.Trait.Prolific.Description | 이 쥐는 상상을 초월할 정도로 생산성이 뛰어납니다
+WhiskerTraits.Trait.Mighty.Name | 천하장사
+WhiskerTraits.Trait.Mighty.Description | 이 쥐는 엄청나게 무거운 짐도 거뜬히 들어 올릴 수 있습니다
+WhiskerTraits.Trait.Speedy.Name | 번개 발
+WhiskerTraits.Trait.Speedy.Description | 이 쥐는 이동 속도가 번개처럼 빠릅니다
+WhiskerTraits.Trait.Normal.Name | 평범한 주민
+WhiskerTraits.Trait.Normal.Description | 이 쥐는 어떤 면에서도 딱히 특별한 점이 없습니다
+WhiskerTraits.Trait.Average.Name | 흔한 일꾼
+WhiskerTraits.Trait.Average.Description | 이 쥐는 지극히 평범하고 무난합니다
+WhiskerTraits.Trait.Mundane.Name | 무색무취
+WhiskerTraits.Trait.Mundane.Description | 이 쥐는 눈에 띄는 고유한 특징이 전혀 없습니다
+WhiskerTraits.Trait.JackOfAllTrades.Name | 팔방미인
+WhiskerTraits.Trait.JackOfAllTrades.Description | 이 쥐는 모든 종류의 작업에 다재다능합니다
+WhiskerTraits.Trait.Builder.Name | 전문 건축가
+WhiskerTraits.Trait.Builder.Description | 이 쥐는 건물 건설 활동에 탁월한 재능이 있습니다
