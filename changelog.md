@@ -1,5 +1,11 @@
 ## Changelog
 
+### 0.2.0.0
+ - Updated for Unreal 5.8.
+ - Added missing trailing pipes to vanilla traits in `CustomTraits.txt`.
+ - Added Simplifed Chinese (`zh.txt`) localization. Thanks to Hansue for the translation.
+ - Added Korean (`ko.txt`) localization. Thanks to 눈꽃고양이 for the translation.
+ 
 ### 0.1.1.1
   Added `zh-tw.txt` localization file. Thanks to sarukomine for providing translations.
 
