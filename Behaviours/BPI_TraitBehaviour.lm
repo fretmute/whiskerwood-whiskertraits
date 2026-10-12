@@ -1,0 +1,9 @@
+// What a trait component does. AC_TraitBase implements it with empty handlers; each trait component (a child of
+// AC_TraitBase) writes its own `on Evaluate` / `on OnRemoved`. (Loom can't override a parent Blueprint's function, so the
+// overridable hooks are an interface's.)
+interface BPI_TraitBehaviour at /Game/Mods/WhiskerTraits/Behaviours/BPI_TraitBehaviour {
+    // Called every EvaluateInterval while the whisker lives.
+    fn Evaluate()
+    // Called when the component goes away while the whisker lives on (trait behaviours switched off): undo your effects.
+    fn OnRemoved()
+}

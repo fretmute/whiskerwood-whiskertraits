@@ -25,3 +25,5 @@ WhiskerTraits.Trait.JackOfAllTrades.Name | 万事通
 WhiskerTraits.Trait.JackOfAllTrades.Description | 这只鼠鼠在各种工作中都表现出色
 WhiskerTraits.Trait.Builder.Name | 建筑工
 WhiskerTraits.Trait.Builder.Description | 这只鼠鼠在建筑活动中表现出色
+WhiskerTraits.Setting.EnableTraitBehaviours.Name | WhiskerTraits - Enable Trait Behaviours
+WhiskerTraits.Setting.EnableTraitBehaviours.Description | Select Disabled to switch off traits that act while whiskers work (such as Hauler). Takes effect at once.

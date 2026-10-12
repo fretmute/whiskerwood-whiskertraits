@@ -25,3 +25,5 @@ WhiskerTraits.Trait.JackOfAllTrades.Name | 萬事通
 WhiskerTraits.Trait.JackOfAllTrades.Description |  這根鬍鬚擅長各種各樣的工作
 WhiskerTraits.Trait.Builder.Name | 建築者
 WhiskerTraits.Trait.Builder.Description | 這根鬍鬚擅長建築相關活動
+WhiskerTraits.Setting.EnableTraitBehaviours.Name | WhiskerTraits - Enable Trait Behaviours
+WhiskerTraits.Setting.EnableTraitBehaviours.Description | Select Disabled to switch off traits that act while whiskers work (such as Hauler). Takes effect at once.

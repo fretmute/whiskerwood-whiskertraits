@@ -25,3 +25,5 @@ WhiskerTraits.Trait.JackOfAllTrades.Name | Jack of All Trades
 WhiskerTraits.Trait.JackOfAllTrades.Description | This whisker excels at all types of work.
 WhiskerTraits.Trait.Builder.Name | Builder
 WhiskerTraits.Trait.Builder.Description | This whisker excels at construction activities.
+WhiskerTraits.Setting.EnableTraitBehaviours.Name | WhiskerTraits - Enable Trait Behaviours
+WhiskerTraits.Setting.EnableTraitBehaviours.Description | Select Disabled to switch off traits that act while whiskers work (such as Hauler). Takes effect at once.

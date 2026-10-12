@@ -1,0 +1,3 @@
+blueprint BP_MapLoad : BP_TraitManager at /Game/Mods/WhiskerTraits/BP_MapLoad
+
+// Spawned by the game when a save loads. All of its work is in BP_TraitManager (Behaviours/).

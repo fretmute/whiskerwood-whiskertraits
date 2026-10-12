@@ -1,0 +1,117 @@
+blueprint BPL_WhiskerState : BlueprintFunctionLibrary at /Game/Mods/WhiskerTraits/Behaviours/BPL_WhiskerState
+
+// Read and write helpers for trait components, so components never touch the game's nested structs directly.
+// Writes need the WhiskerwoodStubAccess editor plugin at build time (the fields are read-only in the stubs).
+// Design: workflows/WhiskerTraits/docs/TraitComponentArchitecture.md §3.3.
+
+category "WhiskerTraits"
+
+// ---- logging ----
+
+// One line in %localappdata%\Whiskerwood\Saved\Logs\modlog.txt, prefixed with [WhiskerTraits].
+fn Log(msg: string) {
+    ModAPI.GetModAPI().LogMessage("[WhiskerTraits] " + msg, false)
+}
+
+// ---- reads ----
+
+pure fn HasTrait(agent: Prototype_Agent, trait: name) -> bool {
+    return agent.m_characteristics.traits.Contains(trait)
+}
+
+// How many items the whisker is carrying (the sum over every resource in his load).
+pure fn GetCarriedItemCount(agent: Prototype_Agent) -> int {
+    let total = 0
+    for resource, count in agent.m_currentlyRenderedResources.counts {
+        total = total + count
+    }
+    return total
+}
+
+pure fn GetCarriedResources(agent: Prototype_Agent) -> map<name, int> {
+    return agent.m_currentlyRenderedResources.counts
+}
+
+// Our modifier entry, if the whisker has it: found, and its productivity and speed values.
+pure fn GetModifier(agent: Prototype_Agent, key: name, out productivity: int, out speed: int) -> bool {
+    let entry = agent.m_state.modifierState.activeModifiers_all.Find(key)
+    if entry.ReturnValue {
+        productivity = entry.Value.productivityMod
+        speed = entry.Value.speedMod
+    }
+    return entry.ReturnValue
+}
+
+// The workplace's prefab key (e.g. bakery), or None when unemployed.
+pure fn GetWorkplaceKey(agent: Prototype_Agent) -> name {
+    let workplace = agent.GetWorkplace()
+    if workplace == none {
+        return "None"
+    }
+    return workplace.PrefabInfo.prefabKey
+}
+
+// The workplace's active recipe, or None when unemployed or the workplace isn't an industry.
+pure fn GetActiveRecipe(agent: Prototype_Agent) -> name {
+    let workplace = agent.GetWorkplace()
+    if workplace == none {
+        return "None"
+    }
+    let industry = cast(workplace.GetComponentByClass(Industry), Industry)
+    if industry == none {
+        return "None"
+    }
+    return industry.m_activeRecipeKey
+}
+
+// Whether the whisker's current action (the UI key, e.g. "baking") starts with the prefix, ignoring case.
+pure fn ActionIs(agent: Prototype_Agent, prefix: string) -> bool {
+    return KismetStringLibrary.StartsWith(agent.m_state.currentActionDesc, prefix, ESearchCase.IgnoreCase)
+}
+
+// Whether the whisker can still be changed: not a dummy, not being removed.
+pure fn IsLive(agent: Prototype_Agent) -> bool {
+    if agent == none {
+        return false
+    }
+    return !agent.m_state.isDummy && !agent.m_state.pendingRemoval
+}
+
+// ---- writes ----
+
+// Adds or replaces our modifier entry. Icon and display text come from the game's modifier table (the mod's CustomModifiers.txt
+// row for the key) when it has one; expires is always true, so the morning clear removes leftovers if the mod is removed.
+fn SetDynamicModifier(agent: Prototype_Agent, key: name, productivity: int, speed: int, carry: int) {
+    let row = ArcoGameInstance.GetAgentModifier(agent, key)
+    let modifier = row.out_modifier
+    if !row.ReturnValue {
+        modifier = AgentModifier(DisplayName: key, Category: "World", hiddenMod: false)
+    }
+    modifier.productivityMod = productivity
+    modifier.speedMod = speed
+    modifier.carryMod = carry
+    modifier.expires = true
+    agent.m_state.modifierState.activeModifiers_all.Add(key, modifier)
+}
+
+fn RemoveModifier(agent: Prototype_Agent, key: name) -> bool {
+    return agent.m_state.modifierState.activeModifiers_all.Remove(key)
+}
+
+// Applies a change at once. The game folds modifiers into derived_* only on its own events (TraitLifecycleProbe),
+// so every modifier change is paired with the same change here.
+fn AdjustDerived(agent: Prototype_Agent, productivityDelta: float, speedDelta: float) {
+    agent.m_state.derived_productivity = agent.m_state.derived_productivity + productivityDelta
+    agent.m_state.derived_speedPercent = agent.m_state.derived_speedPercent + speedDelta
+}
+
+// For immunity traits: a held cooldown blocks the matching thought (as nosmell does).
+fn HoldThoughtCooldowns(agent: Prototype_Agent, pollutionSeconds: float, hardLaborSeconds: float) {
+    if pollutionSeconds > 0.0 {
+        agent.m_state.lightPollutionThoughtCooldown = pollutionSeconds
+        agent.m_state.heavyPollutionThoughtCooldown = pollutionSeconds
+    }
+    if hardLaborSeconds > 0.0 {
+        agent.m_state.hardLaborCooldown = hardLaborSeconds
+    }
+}

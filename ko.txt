@@ -25,3 +25,5 @@ WhiskerTraits.Trait.JackOfAllTrades.Name | 팔방미인
 WhiskerTraits.Trait.JackOfAllTrades.Description | 이 쥐는 모든 종류의 작업에 다재다능합니다
 WhiskerTraits.Trait.Builder.Name | 전문 건축가
 WhiskerTraits.Trait.Builder.Description | 이 쥐는 건물 건설 활동에 탁월한 재능이 있습니다
+WhiskerTraits.Setting.EnableTraitBehaviours.Name | WhiskerTraits - Enable Trait Behaviours
+WhiskerTraits.Setting.EnableTraitBehaviours.Description | Select Disabled to switch off traits that act while whiskers work (such as Hauler). Takes effect at once.

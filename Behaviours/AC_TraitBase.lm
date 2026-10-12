@@ -1,0 +1,75 @@
+blueprint AC_TraitBase : ActorComponent at /Game/Mods/WhiskerTraits/Behaviours/AC_TraitBase
+implements BPI_TraitBehaviour
+
+// Parent of every trait component. Attached to a whisker by BP_TraitManager when he has the trait.
+// No tick: a looping timer every EvaluateInterval game seconds, first fire after a random delay so components spread out.
+// Subclasses handle BPI_TraitBehaviour's Evaluate (and OnRemoved, called by SwitchOff, if they leave effects behind): `on Evaluate { }`.
+// Rules (TraitComponentArchitecture §6): read the whisker's modifier map back on every evaluation, write only on change,
+// pair every modifier change with BPL_WhiskerState.AdjustDerived.
+
+category "WhiskerTraits"
+
+// Seconds between evaluations (game time; pauses and scales with the game).
+var EvaluateInterval: float = 1.0
+var Agent: Prototype_Agent
+var Evaluations: int = 0
+var StartHandle: TimerHandle
+var LoopHandle: TimerHandle
+
+// ---- lifecycle ----
+// Components are switched off and on (SwitchOff / SwitchOn), never destroyed: K2_DestroyComponent only works when called
+// by the owning actor, and nothing of ours runs on the whisker itself (Phase 1 test, 2026-10-11).
+
+// Whether the timer is running (false after SwitchOff).
+var Active: bool = false
+
+on ReceiveBeginPlay {
+    Agent = cast(GetOwner(), Prototype_Agent)
+    SwitchOn()
+}
+
+on ReceiveEndPlay(reason: EEndPlayReason) {
+    // Whisker gone, level change or quit: his state goes with him (modifiers aren't saved), so nothing to undo.
+    StopTimers()
+}
+
+// Starts evaluating (first evaluation after a random delay). Does nothing if already active.
+fn SwitchOn() {
+    if Active || Agent == none {
+        return
+    }
+    Active = true
+    let first = KismetMathLibrary.RandomFloatInRange(0.05, EvaluateInterval)
+    StartHandle = KismetSystemLibrary.K2_SetTimerDelegate(StartLoop, first, false)
+}
+
+// Stops evaluating and undoes the trait's effects (OnRemoved). Does nothing if already inactive.
+fn SwitchOff() {
+    if !Active {
+        return
+    }
+    Active = false
+    StopTimers()
+    if BPL_WhiskerState.IsLive(Agent) {
+        cast(self, BPI_TraitBehaviour).OnRemoved()
+    }
+}
+
+fn StopTimers() {
+    KismetSystemLibrary.K2_ClearAndInvalidateTimerHandle(StartHandle)
+    KismetSystemLibrary.K2_ClearAndInvalidateTimerHandle(LoopHandle)
+}
+
+fn StartLoop() {
+    LoopHandle = KismetSystemLibrary.K2_SetTimerDelegate(Step, EvaluateInterval, true)
+    Step()
+}
+
+fn Step() {
+    if !Active || !BPL_WhiskerState.IsLive(Agent) {
+        StopTimers()
+        return
+    }
+    Evaluations += 1
+    cast(self, BPI_TraitBehaviour).Evaluate()
+}
