@@ -1,16 +1,25 @@
 blueprint AC_Trait_Debug : AC_TraitBase at /Game/Mods/WhiskerTraits/Behaviours/AC_Trait_Debug
+use /Game/Mods/Fretlib/Lib_1
 
 // Phase 1 test component: registered by BP_TraitManager for DebugTraitKey (off when that is None).
-// Changes nothing; logs what the BPL_WhiskerState reads see on its first evaluation and every LogEvery evaluations.
+// Changes nothing; logs (Debug level) what the BPL_FL_Whisker reads see on its first evaluation and every LogEvery evaluations.
 
+// Evaluations between log lines.
 var LogEvery: int = 120
 
+// Logs the whisker's ID, load, workplace, recipe, action and speed on the first evaluation and every LogEvery,
+// plus his workplace's ID, slot count and his slot index (exercises BPL_FL_Workplace).
 on Evaluate {
     if Evaluations == 1 || Evaluations % LogEvery == 0 {
-        BPL_WhiskerState.Log("debug id=" + string(Agent.m_characteristics.ID) + " eval=" + string(Evaluations) + " carried=" + string(BPL_WhiskerState.GetCarriedItemCount(Agent)) + " workplace=" + string(BPL_WhiskerState.GetWorkplaceKey(Agent)) + " recipe=" + string(BPL_WhiskerState.GetActiveRecipe(Agent)) + " action=" + Agent.m_state.currentActionDesc + " speed=" + string(Agent.m_state.derived_speedPercent))
+        let id = BPL_FL_Whisker.GetAgentId(Agent)
+        let workplace = Agent.GetWorkplace()
+        let slots = BPL_FL_Workplace.GetWorkerSlots(BPL_FL_Workplace.GetWorkerComponent(workplace))
+        BPL_FL_Log.Debug(Logger, "debug id=" + string(id) + " eval=" + string(Evaluations) + " carried=" + string(BPL_FL_Whisker.GetCarriedItemCount(Agent)) + " workplace=" + string(BPL_FL_Whisker.GetWorkplaceKey(Agent)) + " recipe=" + string(BPL_FL_Whisker.GetActiveRecipe(Agent)) + " action=" + Agent.m_state.currentActionDesc + " speed=" + string(Agent.m_state.derived_speedPercent))
+        BPL_FL_Log.Debug(Logger, "debug id=" + string(id) + " building=" + string(BPL_FL_Workplace.GetBuildingId(workplace)) + " prefab=" + string(BPL_FL_Workplace.GetPrefabKey(workplace)) + " slots=" + string(slots.Length()) + " mySlot=" + string(BPL_FL_Workplace.FindAgentSlot(workplace, id)) + " disabled=" + string(BPL_FL_Workplace.IsWorkplaceDisabled(BPL_FL_Workplace.GetWorkerComponent(workplace))))
     }
 }
 
+// Logs that the component was switched off.
 on OnRemoved {
-    BPL_WhiskerState.Log("debug id=" + string(Agent.m_characteristics.ID) + " removed after " + string(Evaluations) + " evaluations")
+    BPL_FL_Log.Debug(Logger, "debug id=" + string(BPL_FL_Whisker.GetAgentId(Agent)) + " removed after " + string(Evaluations) + " evaluations")
 }

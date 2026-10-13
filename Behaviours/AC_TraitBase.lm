@@ -1,20 +1,27 @@
 blueprint AC_TraitBase : ActorComponent at /Game/Mods/WhiskerTraits/Behaviours/AC_TraitBase
+use /Game/Mods/Fretlib/Lib_1
 implements BPI_TraitBehaviour
 
 // Parent of every trait component. Attached to a whisker by BP_TraitManager when he has the trait.
 // No tick: a looping timer every EvaluateInterval game seconds, first fire after a random delay so components spread out.
 // Subclasses handle BPI_TraitBehaviour's Evaluate (and OnRemoved, called by SwitchOff, if they leave effects behind): `on Evaluate { }`.
 // Rules (TraitComponentArchitecture §6): read the whisker's modifier map back on every evaluation, write only on change,
-// pair every modifier change with BPL_WhiskerState.AdjustDerived.
+// pair every modifier change with BPL_FL_Whisker.AdjustDerived.
 
 category "WhiskerTraits"
 
 // Seconds between evaluations (game time; pauses and scales with the game).
 var EvaluateInterval: float = 1.0
+// The whisker this component is attached to.
 var Agent: Prototype_Agent
+// How many times Evaluate has run.
 var Evaluations: int = 0
+// Timer for the first, randomly delayed evaluation.
 var StartHandle: TimerHandle
+// Timer for the evaluation loop.
 var LoopHandle: TimerHandle
+// The mod's logger, set by BP_TraitManager right after attaching.
+var Logger: S_FL_Logger
 
 // ---- lifecycle ----
 // Components are switched off and on (SwitchOff / SwitchOn), never destroyed: K2_DestroyComponent only works when called
@@ -23,17 +30,23 @@ var LoopHandle: TimerHandle
 // Whether the timer is running (false after SwitchOff).
 var Active: bool = false
 
+// Finds the owning whisker and starts evaluating.
 on ReceiveBeginPlay {
     Agent = cast(GetOwner(), Prototype_Agent)
     SwitchOn()
 }
 
+// Whisker gone, level change or quit: his state goes with him (modifiers aren't saved), so there is nothing to undo.
+//
+// In:  reason - why play ended.
 on ReceiveEndPlay(reason: EEndPlayReason) {
-    // Whisker gone, level change or quit: his state goes with him (modifiers aren't saved), so nothing to undo.
     StopTimers()
 }
 
-// Starts evaluating (first evaluation after a random delay). Does nothing if already active.
+// Starts evaluating, the first evaluation after a random delay. Does nothing if already active.
+//
+// In:  none
+// Out: none
 fn SwitchOn() {
     if Active || Agent == none {
         return
@@ -44,29 +57,44 @@ fn SwitchOn() {
 }
 
 // Stops evaluating and undoes the trait's effects (OnRemoved). Does nothing if already inactive.
+//
+// In:  none
+// Out: none
 fn SwitchOff() {
     if !Active {
         return
     }
     Active = false
     StopTimers()
-    if BPL_WhiskerState.IsLive(Agent) {
+    if BPL_FL_Whisker.IsLive(Agent) {
         cast(self, BPI_TraitBehaviour).OnRemoved()
     }
 }
 
+// Clears both timers.
+//
+// In:  none
+// Out: none
 fn StopTimers() {
     KismetSystemLibrary.K2_ClearAndInvalidateTimerHandle(StartHandle)
     KismetSystemLibrary.K2_ClearAndInvalidateTimerHandle(LoopHandle)
 }
 
+// Starts the evaluation loop and runs the first evaluation.
+//
+// In:  none
+// Out: none
 fn StartLoop() {
     LoopHandle = KismetSystemLibrary.K2_SetTimerDelegate(Step, EvaluateInterval, true)
     Step()
 }
 
+// One evaluation: stops if the component was switched off or the whisker is gone, otherwise calls Evaluate.
+//
+// In:  none
+// Out: none
 fn Step() {
-    if !Active || !BPL_WhiskerState.IsLive(Agent) {
+    if !Active || !BPL_FL_Whisker.IsLive(Agent) {
         StopTimers()
         return
     }

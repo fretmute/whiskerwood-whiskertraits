@@ -1,27 +1,43 @@
 blueprint BP_TraitManager : Actor at /Game/Mods/WhiskerTraits/Behaviours/BP_TraitManager
+use /Game/Mods/Fretlib/Lib_1
 
 // Attaches trait components to whiskers. The mod's BP_MapLoad (spawned by the game per save) is a child of this.
 // Event order (TraitLifecycleProbe): BeginPlay, onWhiskerSpawned for every loaded whisker, onLoadingFinished, then
 // onWhiskerSpawned for each arrival. Components and their modifiers aren't saved; each load attaches afresh.
+// Uses Fretlib Lib_1 (BPL_FL_Whisker, BPL_FL_Components, BPL_FL_Log); without Fretlib it logs once and stays off.
 // Design: workflows/WhiskerTraits/docs/TraitComponentArchitecture.md §3.1.
 
 category "WhiskerTraits"
 
+// Mod option that switches trait behaviours on and off.
 var OptionId: string = "WhiskerTraits-EnableTraitBehaviours"
 // Trait key -> component class. Filled by RegisterTraits.
 var Registry: map<name, class<AC_TraitBase>>
 // Phase 1 test: attach AC_Trait_Debug to whiskers with this trait. None = off. Set to None before release.
 var DebugTraitKey: name = "nosmell"
+// Whether trait behaviours are on (mod option).
 var Enabled: bool = true
+// Whether onLoadingFinished has fired for this map.
 var Loaded: bool = false
+// Minimum log level for the manager and its components. Debug while developing; Warning before release.
+var LogLevel: E_FL_LogLevel = E_FL_LogLevel.Debug
+// The mod's logger, handed to every component it attaches.
+var Logger: S_FL_Logger
 
-// The option's values are the game's localised toggle keys (toggle.enabled / toggle.disabled). "True" is also accepted.
+// Whether a mod option value means "on".
+//
+// In:  value - the option's value: the game's localised toggle keys (toggle.enabled / toggle.disabled), or True/False.
+// Out: Return - true for toggle.enabled or True.
 pure fn IsOn(value: string) -> bool {
     return value == "toggle.enabled" || value == "True"
 }
 
 // ---- registry ----
 
+// Fills Registry with the behaviour traits and their component classes.
+//
+// In:  none
+// Out: none
 fn RegisterTraits() {
     // Behaviour traits go here, e.g. Registry.Add("whiskertraits.hauler", AC_Trait_Hauler)
     if DebugTraitKey != "None" {
@@ -31,9 +47,12 @@ fn RegisterTraits() {
 
 // ---- attach / detach ----
 
-// Adds the registered components this whisker lacks and reactivates any switched off; gives how many were added or reactivated.
+// Adds the registered components this whisker lacks and switches back on any that were switched off.
+//
+// In:  agent - the whisker.
+// Out: Return - how many components were added or switched on.
 fn Attach(agent: Prototype_Agent) -> int {
-    if !Enabled || !BPL_WhiskerState.IsLive(agent) {
+    if !Enabled || !BPL_FL_Whisker.IsLive(agent) {
         return 0
     }
     let added = 0
@@ -43,16 +62,19 @@ fn Attach(agent: Prototype_Agent) -> int {
             let existing = cast(agent.GetComponentByClass(entry.Value), AC_TraitBase)
             if existing != none {
                 if !existing.Active {
+                    existing.Logger = Logger
                     existing.SwitchOn()
                     added += 1
                 }
             } else {
-                // Loom refuses AddComponentByClass, so a hand-made library wraps the editor's Add Component by Class node.
-                let component = BPL_ComponentHelper.AddComponentOfClass(agent, entry.Value).Component
+                // Loom refuses AddComponentByClass, so Fretlib's hand-made library wraps the editor's Add Component by Class node.
+                let component = cast(BPL_FL_Components.AddComponentOfClass(agent, entry.Value).Component, AC_TraitBase)
                 if component != none {
+                    // Set before its first evaluation, which runs after a random delay.
+                    component.Logger = Logger
                     added += 1
                 } else {
-                    BPL_WhiskerState.Log("attach FAILED: " + string(trait) + " on whisker " + string(agent.m_characteristics.ID))
+                    BPL_FL_Log.Error(Logger, "attach failed: " + string(trait) + " on whisker " + string(BPL_FL_Whisker.GetAgentId(agent)))
                 }
             }
         }
@@ -60,16 +82,23 @@ fn Attach(agent: Prototype_Agent) -> int {
     return added
 }
 
+// Attaches components to every whisker in the colony.
+//
+// In:  reason - why the scan runs, for the log line (load, day N, option on).
+// Out: none
 fn ScanAll(reason: string) {
     let found = GameplayStatics.GetAllActorsOfClass(Prototype_Agent)
     let added = 0
     for actor in found.OutActors {
         added += Attach(cast(actor, Prototype_Agent))
     }
-    BPL_WhiskerState.Log("scan (" + reason + "): " + string(found.OutActors.Length()) + " whiskers, " + string(added) + " components added or switched on")
+    BPL_FL_Log.Info(Logger, "scan (" + reason + "): " + string(found.OutActors.Length()) + " whiskers, " + string(added) + " components added or switched on")
 }
 
-// Switches every trait component off (it stays on the whisker, idle, until switched on again or the save is reloaded).
+// Switches every trait component off. It stays on the whisker, idle, until switched on again or the save is reloaded.
+//
+// In:  none
+// Out: none
 fn DeactivateAll() {
     let found = GameplayStatics.GetAllActorsOfClass(Prototype_Agent)
     let stopped = 0
@@ -85,27 +114,44 @@ fn DeactivateAll() {
             }
         }
     }
-    BPL_WhiskerState.Log("trait behaviours off: " + string(stopped) + " components switched off")
+    BPL_FL_Log.Info(Logger, "trait behaviours off: " + string(stopped) + " components switched off")
 }
 
 // ---- events ----
 
+// ModAPI.onLoadingFinished: the colony is loaded; attaches components to everyone.
+//
+// In:  none
+// Out: none
 fn OnLoaded() {
     Loaded = true
     ScanAll("load")
 }
 
+// ModAPI.onWhiskerSpawned: attaches components to an arrival or a birth.
+// Loaded whiskers are covered by the scan at onLoadingFinished.
+//
+// In:  actor - the new whisker.
+// Out: none
 fn OnSpawned(actor: Actor) {
-    // Loaded whiskers are covered by the scan at onLoadingFinished; this catches arrivals and births.
     if Loaded {
         Attach(cast(actor, Prototype_Agent))
     }
 }
 
+// ModAPI.onDayStart: re-scans, catching trait changes.
+//
+// In:  day - the new day's number.
+// Out: none
 fn OnDayStart(day: int) {
     ScanAll("day " + string(day))
 }
 
+// ModAPI.onOptionChanged: switches trait behaviours on or off with the mod option.
+//
+// In:  optionId - the option that changed.
+//      value - its new value.
+// Out: none
 fn OnOptionChanged(optionId: string, value: string) {
     if optionId != OptionId {
         return
@@ -122,13 +168,21 @@ fn OnOptionChanged(optionId: string, value: string) {
     }
 }
 
+// Checks for Fretlib, configures logging, registers the traits and binds the ModAPI events.
 on ReceiveBeginPlay {
-    RegisterTraits()
     let api = ModAPI.GetModAPI()
+    if BPL_FL_Log.GetLibVersion() == 0 {
+        // Fretlib missing: every library call would silently do nothing (CommonLibrary TestPlan T2).
+        api.LogMessage("[WhiskerTraits] Fretlib is not installed or is too old: trait behaviours are off. Install Fretlib.", true)
+        Enabled = false
+        return
+    }
+    Logger = BPL_FL_Log.Configure("WhiskerTraits", LogLevel)
+    RegisterTraits()
     Enabled = IsOn(api.ReadModOptionValue(OptionId, "toggle.enabled"))
     api.onLoadingFinished.bind(OnLoaded)
     api.onWhiskerSpawned.bind(OnSpawned)
     api.onDayStart.bind(OnDayStart)
     api.onOptionChanged.bind(OnOptionChanged)
-    BPL_WhiskerState.Log("trait manager ready: " + string(Registry.Length()) + " behaviour traits, enabled=" + string(Enabled))
+    BPL_FL_Log.Info(Logger, "trait manager ready: " + string(Registry.Length()) + " behaviour traits, enabled=" + string(Enabled))
 }

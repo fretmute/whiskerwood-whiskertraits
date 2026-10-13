@@ -1,0 +1,2 @@
+blueprint AC_SyntaxTest : ActorComponent at /Game/Mods/WhiskerTraits/Behaviours/AC_SyntaxTest
+implements BPI_TraitBehaviour
