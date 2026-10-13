@@ -5,7 +5,7 @@ use /Game/Mods/Fretlib/Lib_1
 // Event order (TraitLifecycleProbe): BeginPlay, onWhiskerSpawned for every loaded whisker, onLoadingFinished, then
 // onWhiskerSpawned for each arrival. Components and their modifiers aren't saved; each load attaches afresh.
 // Uses Fretlib Lib_1 (BPL_FL_Whisker, BPL_FL_Components, BPL_FL_Log); without Fretlib it logs once and stays off.
-// Design: workflows/WhiskerTraits/docs/TraitComponentArchitecture.md §3.1.
+// Design: workflows/WhiskerTraits/docs/TraitComponentArchitecture.md §3.1. 
 
 category "WhiskerTraits"
 
@@ -20,7 +20,7 @@ var Enabled: bool = true
 // Whether onLoadingFinished has fired for this map.
 var Loaded: bool = false
 // Minimum log level for the manager and its components. Debug while developing; Warning before release.
-var LogLevel: E_FL_LogLevel = E_FL_LogLevel.Debug
+var LogLevel: E_FL_LogLevel = E_FL_LogLevel.Warning
 // The mod's logger, handed to every component it attaches.
 var Logger: S_FL_Logger
 
